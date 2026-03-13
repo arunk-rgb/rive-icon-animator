@@ -88,7 +88,9 @@
       };
 
       const generateReactCode = () => {
-        return `import React from 'react';\n\nexport const AnimatedIcon = ({ name = '${iconName}', size = 64 }) => {\n  return (\n    <>\n      <style>{\\`\n        .custom-animated-icon {\n          color: ${color};\n          filter: drop-shadow(0 0 ${glow * 10}px ${color}) blur(${blur}px);\n          animation: custom-icon-anim ${duration}s infinite ${timingFunc};\n          display: inline-block;\n          font-size: \\${size}px;\n          font-variation-settings: 'FILL' ${isFilled ? 1 : 0};\n        }\n        @keyframes custom-icon-anim {\n          ${getKeyframes()}\n        }\n      \\`}</style>\n      <span className="material-symbols-outlined custom-animated-icon">\n        {name}\n      </span>\n    </>\n  );\n};\n\nexport default AnimatedIcon;`;
+        const bt = String.fromCharCode(96);
+        const dl = String.fromCharCode(36);
+        return "import React from 'react';\n\nexport const AnimatedIcon = ({ name = '" + iconName + "', size = 64 }) => {\n  return (\n    <>\n      <style>{" + bt + "\n        .custom-animated-icon {\n          color: " + color + ";\n          filter: drop-shadow(0 0 " + (glow * 10) + "px " + color + ") blur(" + blur + "px);\n          animation: custom-icon-anim " + duration + "s infinite " + timingFunc + ";\n          display: inline-block;\n          font-size: " + dl + "{size}px;\n          font-variation-settings: 'FILL' " + (isFilled ? 1 : 0) + ";\n        }\n        @keyframes custom-icon-anim {\n          " + getKeyframes() + "\n        }\n      " + bt + "}</style>\n      <span className=\"material-symbols-outlined custom-animated-icon\">\n        {name}\n      </span>\n    </>\n  );\n};\n\nexport default AnimatedIcon;";
       };
 
       const handleCopyCSS = () => {
