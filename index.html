@@ -214,7 +214,7 @@
                 <input type="color" value={color} onChange={(e) => setColor(e.target.value)}
                   style={{width:'48px',height:'48px',padding:'2px',borderRadius:'6px',border:'1px solid #404040',background:'none',cursor:'pointer'}} />
                 <input type="text" value={color}
-                  onChange={(e) => { const v = e.target.value; if (/^#[0-9a-fA-F]{0,6}$/.test(v)) setColor(v); }}
+                  onChange={(e) => setColor(e.target.value)}
                   className="flex-1 bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-neutral-400 font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors" />
               </div>/div>
 
